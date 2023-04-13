@@ -2,7 +2,7 @@ from django.contrib import messages
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
 
-from sms_app.models import CustomUser, Staffs, Courses, Subjects
+from sms_app.models import CustomUser, Staffs, Courses, Subjects, Students
 
 
 def admin_home(request):
@@ -115,3 +115,23 @@ def add_subject_save(request):
         except:
             messages.error(request,"Failed to Add Subject")
             return HttpResponseRedirect("/add_subject")
+
+
+def manage_staff(request):
+    staffs=Staffs.objects.all()
+    return render(request,"hod_template/manage_staff_template.html",{"staffs":staffs})
+
+
+def manage_student(request):
+    students=Students.objects.all()
+    return render(request,"hod_template/manage_student_template.html",{"students":students})
+
+
+def manage_course(request):
+    courses=Courses.objects.all()
+    return render(request,"hod_template/manage_course_template.html",{"courses":courses})
+
+
+def manage_subject(request):
+    subjects=Subjects.objects.all()
+    return render(request,"hod_template/manage_subject_template.html",{"subjects":subjects})

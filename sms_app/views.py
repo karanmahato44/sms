@@ -4,7 +4,7 @@ from django.http import HttpResponseRedirect, HttpResponse
 from django.shortcuts import render
 
 from sms_app.EmailBackEnd import EmailBackEnd
-from sms_app.models import Courses, CustomUser
+from sms_app.models import Courses, CustomUser, Staffs
 
 
 # Create your views here.
@@ -44,3 +44,5 @@ def GetUserDetails(request):
 def logout_user(request):
     logout(request)
     return HttpResponseRedirect("/")
+
+
