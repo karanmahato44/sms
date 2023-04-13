@@ -4,6 +4,9 @@ from django.http import HttpResponseRedirect, HttpResponse
 from django.shortcuts import render
 
 from sms_app.EmailBackEnd import EmailBackEnd
+from sms_app.models import Courses, CustomUser
+
+
 # Create your views here.
 
 
