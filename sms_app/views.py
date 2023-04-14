@@ -1,38 +1,37 @@
+import datetime
+
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
-from django.http import HttpResponseRedirect, HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
+from django.urls import reverse
 
 from sms_app.EmailBackEnd import EmailBackEnd
-from sms_app.models import Courses, CustomUser, Staffs
-
-
-# Create your views here.
 
 
 def showDemoPage(request):
-    return render(request, "demo.html")
+    return render(request,"demo.html")
+
 
 def ShowLoginPage(request):
-    return render(request, "login_page.html")
+    return render(request,"login_page.html")
 
 def doLogin(request):
     if request.method!="POST":
         return HttpResponse("<h2>Method Not Allowed</h2>")
     else:
-        user = EmailBackEnd.authenticate(request,username=request.POST.get("email"),password=request.POST.get("password"))
-        if user != None:
-            login(request, user)
-            if user.user_type == "1":
-                return HttpResponseRedirect("/admin_home")
-            elif user.user_type == "2":
-                return HttpResponse("Staff login" + str(user.user_type))
+        user=EmailBackEnd.authenticate(request,username=request.POST.get("email"),password=request.POST.get("password"))
+        if user!=None:
+            login(request,user)
+            if user.user_type=="1":
+                return HttpResponseRedirect('/admin_home')
+            elif user.user_type=="2":
+                return HttpResponseRedirect(reverse("staff_home"))
             else:
-                return HttpResponse("Student login" + str(user.user_type))
+                return HttpResponseRedirect(reverse("student_home"))
         else:
-            messages.error(request, "Invalid Login Details")
+            messages.error(request,"Invalid Login Details")
             return HttpResponseRedirect("/")
-
 
 
 def GetUserDetails(request):
@@ -44,5 +43,3 @@ def GetUserDetails(request):
 def logout_user(request):
     logout(request)
     return HttpResponseRedirect("/")
-
-
