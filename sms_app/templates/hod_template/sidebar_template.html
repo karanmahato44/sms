@@ -25,6 +25,16 @@
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
           <li class="nav-item">
+            {% url 'admin_home' as admin_home %}
+            <a href="{{ admin_home }}" class="nav-link {% if request.path == admin_home %} active {% endif %}">
+              <i class="nav-icon fas fa-th"></i>
+              <p>
+                Home
+              </p>
+            </a>
+          </li>
+
+          <li class="nav-item">
             {% url 'add_staff' as add_staff %}
             <a href="{{ add_staff }}" class="nav-link {% if request.path == add_staff %} active {% endif %}">
               <i class="nav-icon fas fa-th"></i>
@@ -100,7 +110,7 @@
               </p>
             </a>
           </li>
-                    <li class="nav-item">
+          <li class="nav-item">
             {% url 'manage_session' as manage_session %}
             <a href="{% url 'manage_session' %}" class="nav-link {% if request.path == manage_session %} active {% endif %} ">
               <i class="nav-icon fas fa-th"></i>
@@ -109,51 +119,53 @@
               </p>
             </a>
           </li>
+
            <li class="nav-item">
-             <a href="{% url 'add_staff' %}" class="nav-link">
-              <i class="nav-icon fas fa-th"></i>
-              <p>
-                View Attendance
-                <span class="right badge badge-danger">New</span>
-              </p>
-            </a>
-          </li>
-           <li class="nav-item">
-            <a href="{% url 'add_staff' %}" class="nav-link">
+             {% url 'student_feedback_message' as student_feedback_message %}
+            <a href="{% url 'student_feedback_message' %}" class="nav-link {% if request.path == student_feedback_message %} active {% endif %}">
               <i class="nav-icon fas fa-th"></i>
               <p>
                 Student Feedback
-                <span class="right badge badge-danger">New</span>
               </p>
             </a>
           </li>
            <li class="nav-item">
-            <a href="{% url 'add_staff' %}" class="nav-link">
+               {% url 'staff_feedback_message' as staff_feedback_message %}
+            <a href="{% url 'staff_feedback_message' %}" class="nav-link {% if request.path == staff_feedback_message %} active {% endif %}">
               <i class="nav-icon fas fa-th"></i>
               <p>
                 Staff Feedback
-                <span class="right badge badge-danger">New</span>
               </p>
             </a>
           </li>
            <li class="nav-item">
-            <a href="{% url 'add_staff' %}" class="nav-link">
+               {% url 'student_leave_view' as student_leave_view %}
+            <a href="#" class="nav-link {% if request.path == student_leave_view %} active {% endif %}">
               <i class="nav-icon fas fa-th"></i>
               <p>
                 Student Leave
-                <span class="right badge badge-danger">New</span>
               </p>
             </a>
           </li>
-              <li class="nav-item">
-              <a href="{% url 'add_staff' %}" class="nav-link">
-                <i class="nav-icon fas fa-th"></i>
-                <p>
-                  Staff Leave
-                  <span class="right badge badge-danger">New</span>
-                </p>
-              </a>
-            </li>
+            <li class="nav-item">
+                 {% url 'staff_leave_view' as staff_leave_view %}
+            <a href="#" class="nav-link {% if request.path == staff_leave_view %} active {% endif %}">
+              <i class="nav-icon fas fa-th"></i>
+              <p>
+                Staff Leave
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            {% url 'admin_view_attendance' as admin_view_attendance %}
+             <a href="#" class="nav-link {% if request.path == admin_view_attendance %} active {% endif %}">
+              <i class="nav-icon fas fa-th"></i>
+              <p>
+                View Attendance
+              </p>
+            </a>
+          </li>
+
         </ul>
       </nav>
       <!-- /.sidebar-menu -->
