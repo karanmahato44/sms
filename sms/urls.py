@@ -14,7 +14,7 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 from django.conf.urls.static import static
 from sms import settings
 from sms_app import views, HodViews, StaffViews, StudentViews
@@ -22,6 +22,8 @@ from sms_app import views, HodViews, StaffViews, StudentViews
 urlpatterns = [
                   path('demo/', views.showDemoPage),
                   path('admin/', admin.site.urls),
+                  path('accounts/', include('django.contrib.auth.urls')),
+
                   path('', views.ShowLoginPage,name="show_login"),
                   path('get_user_details', views.GetUserDetails),
                   path('logout_user', views.logout_user,name="logout"),

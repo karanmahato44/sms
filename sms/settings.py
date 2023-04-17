@@ -63,7 +63,7 @@ ROOT_URLCONF = 'sms.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ['sms_app/templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -133,6 +133,19 @@ USE_TZ = True
 STATIC_URL = 'static/'
 AUTH_USER_MODEL="sms_app.CustomUser"
 AUTHENTICATION_BACKENDS=['sms_app.EmailBackEnd.EmailBackEnd']
+
+EMAIL_BACKEND="django.core.mail.backends.filebased.EmailBackend"
+EMAIL_FILE_PATH=os.path.join(BASE_DIR,"sent_mails")
+
+
+# for using gmail
+# EMAIL_HOST="smtp.gmail.com"
+# EMAIl_PORT=587
+# EMAIL_HOST_USER="GMAIL_EMAIL"
+# EMAIL_HOST_PASSWORD="GMAIL PASSWORD"
+# EMAIL_USE_TLS=True
+# DEFAULT_FROM_EMAIL="Student management System <GMAIl_EMAIL>"
+#
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
