@@ -9,8 +9,8 @@ from django.urls import reverse
 from sms_app.EmailBackEnd import EmailBackEnd
 
 
-def showDemoPage(request):
-    return render(request,"demo.html")
+def home(request):
+    return render(request,"sms_homepage/index.html")
 
 
 def ShowLoginPage(request):

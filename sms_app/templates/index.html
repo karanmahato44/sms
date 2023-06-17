@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <title>Student Management System</title>
+  <style>
+    body {
+      /* height: 3000px; */
+      padding: 0;
+      margin: 0;
+    }
+
+    * {
+      font-family: 'Roboto', Arial, Helvetica, sans-serif;
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #ffffff;
+      padding: 0 162px;
+      box-shadow: 0 2px 2px rgba(0, 0, 0, 0.10);
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 56px;
+      text-decoration: none;
+
+    }
+
+    .left {
+      display: flex;
+      justify-content: left;
+      align-items: center;
+      font-weight: bold;
+      font-size: 20px;
+    }
+
+    .sms-title {
+      font-weight: 700 !important;
+    }
+
+    .right {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      font-size: 14px;
+    }
+
+    a {
+      text-decoration: none;
+      color: #595959;
+    }
+
+    a:visited {
+      text-decoration: none;
+    }
+
+
+    .links {
+      margin-left: 30px;
+    }
+
+    .support-btn {
+      margin-left: 30px;
+    }
+
+    .content {
+      display: 1fr 1fr;
+      /* border: 1px solid grey; */
+      margin-top: 80px;
+      margin-left: 140px;
+      margin-right: 140px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .sms-art-img {
+      width: 100%;
+    }
+
+    .get-started-btn {
+      background-color: #0b5ed7;
+      border: none;
+      padding: 6px 10px 6px 10px;
+      border-radius: 30px;
+      cursor: pointer;
+      color: white;
+      font-size: 20px;
+      transition: opacity 0.15s;
+    }
+
+    .get-started-btn:hover {
+      opacity: 0.8;
+    }
+
+    .get-started-btn:active {
+      opacity: 0.5;
+    }
+
+    .support-btn {
+      background-color: #0b5ed7;
+      border: none;
+      padding: 6px 10px 6px 10px;
+      border-radius: 30px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: opacity 0.15s;
+    }
+
+    .support-btn:hover {
+      opacity: 0.8;
+    }
+
+    .support-btn:active {
+      opacity: 0.5;
+    }
+
+    .support-btn a {
+      color: white;
+    }
+
+    .primary-slogan {
+      font-size: 3rem;
+      font-weight: 700 !important;
+      ;
+    }
+
+    .secondary-slogan {
+      font-size: 1.20rem;
+      font-weight: 300;
+      color: #595959;
+    }
+
+    #features-div {
+      /* border: 1px solid red; */
+      height: 550px;
+      margin-top: 140px;
+      margin-bottom: 140px;
+      margin-left: 140px;
+      margin-right: 140px;
+      display: flex;
+      align-items: center;
+      justify-content: space-evenly;
+      /* background: linear-gradient(to bottom, rgba(58, 141, 243, 0.5), rgba(0, 198, 255, 0.5)); */
+      background-color: #63a4ff;
+      background-image: linear-gradient(315deg, #63a4ff 0%, #83eaf1 74%);
+      border-radius: 15px;
+      position: relative;
+      z-index: -1;
+
+
+    }
+
+    /* #support-div {
+      background-color: rgb(181, 185, 187);
+      border: 1px solid red;
+      height: 500px;
+      margin-top: 150px;
+      margin-left: 140px;
+      margin-right: 140px;
+    } */
+
+
+
+
+
+
+    .card {
+      display: flex;
+      flex-direction: column;
+      /* border: 1px solid green; */
+      background-color: white;
+      color: black;
+      width: 260px;
+      height: 425px;
+      border-radius: 15px;
+    }
+
+    .feature-img {
+      height: 200px;
+      width: 250px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      /* border: 1px solid red; */
+    }
+
+    .feature-img>img {
+      width: 250px;
+      height: 250px;
+      border-radius: 15px;
+    }
+
+    .feature-text {
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .user-type {
+      font-size: 20px;
+      font-weight: 600 !important;
+    }
+
+    .features {
+      color: #595959;
+      margin: 4px 0;
+      font-size: 14px;
+    }
+
+    .features-title {
+      /* background-color: lightblue; */
+      height: 50px;
+      position: absolute;
+      top: 10px;
+      left: 0;
+      right: 0;
+      text-align: center;
+      font-weight: bold;
+      font-size: 30px;
+    }
+
+
+
+
+
+    .footer-div {
+      background-color: #333333;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      color: white;
+      justify-content: space-between;
+      padding: 0 140px;
+    }
+
+
+    .footer-right {
+      text-align: right;
+      cursor: pointer;
+    }
+
+
+
+    .footer-right .follow {
+      font-size: 24px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    
+    .footer-left .contact-us {
+      font-size: 24px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="navbar">
+    <div class="left">
+      <span class="sms-title">Student Management System</span>
+    </div>
+    <div class="right">
+      <a href="#features-div" class="features-link links">Features</a>
+      <a href="{% url 'show_login' %}" class="adminlogin-link links">Admin Login</a>
+      <a href="{% url 'show_login' %}" class="stafflogin-link links">Staff Login</a>
+      <a href="{% url 'show_login' %}" class="studentlogin-link links">Student Login</a>
+      <button class="support-btn"><a href="#support-div" class="support-link">Support</a></button>
+    </div>
+  </div>
+
+
+  <div class="content">
+    <div class="slogon">
+      <p class="primary-slogan">Empowering education with seamless management</p>
+      <p class="secondary-slogan">Revolutionize the way you manage your school with our comprehensive management system,
+        designed to streamline operations and empower your institution with the tools for success.</p>
+      <button class="get-started-btn">Get Started</button>
+    </div>
+    <div class="sms-art"><img src="sms-art.png" alt="" class="sms-art-img"></div>
+  </div>
+
+
+  <section>
+    <div id="features-div">
+      <div class="features-title">Features & Services</div>
+
+      <div class="card">
+        <div class="feature-img">
+          <img src="admin.png" alt="" class="admin-img">
+        </div>
+        <div class="feature-text">
+          <p class="user-type">Admin/HOD Features</p>
+          <p class="features">Informative Dashboard</p>
+          <p class="features">Staff Management</p>
+          <p class="features">Attendance Reports</p>
+          <p class="features">Student Management</p>
+          <p class="features">Course & Subjects Control</p>
+          <p class="features">Respond to feedbacks</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="feature-img">
+          <img src="staff.png" alt="" class="staff-img">
+        </div>
+        <div class="feature-text">
+          <p class="user-type">Staff Features</p>
+          <p class="features">Student Attendance</p>
+          <p class="features">Student info dash</p>
+          <p class="features">Apply for  Leave</p>
+          <p class="features">Get Profiles</p>
+          
+        </div>
+      </div>
+      <div class="card">
+        <div class="feature-img">
+          <img src="student.png" alt="" class="student-img">
+        </div>
+        <div class="feature-text">
+          <p class="user-type">Student Features</p>
+          <p class="features">Student Profile</p>
+          <p class="features">Apply for leave</p>
+          <p class="features">View attendance</p>
+          <p class="features">Feedbacks</p>
+        </div>
+      </div>
+
+  </section>
+
+
+  <section>
+    <div id="support-div">
+      <footer class="footer-div">
+        <div class="footer-left">
+          <p class="contact-us">Contact Us</p>
+          <p>Email: Support@sms.com</p>
+          <p>Phone: 9812345678</p>
+          <p>Address: Gaindakot-2, Nawalpur</p>
+        </div>
+        <div class="footer-right">
+          <p class="follow">Follow Us</p>
+          <p>Facebook</p>
+          <p>Twitter</p>
+          <p>Instagram</p>
+        </div>
+      </footer>
+    </div>
+  </section>
+
+</body>
+
+</html>

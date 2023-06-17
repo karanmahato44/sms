@@ -20,7 +20,7 @@ from sms import settings
 from sms_app import views, HodViews, StaffViews, StudentViews
 
 urlpatterns = [
-                  path('demo/', views.showDemoPage),
+                  path('home/', views.home),
                   path('admin/', admin.site.urls),
                   path('accounts/', include('django.contrib.auth.urls')),
 
